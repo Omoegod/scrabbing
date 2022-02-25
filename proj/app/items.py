@@ -4,10 +4,10 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+from scrapy_djangoitem import DjangoItem
 
 
-
-class Repositories(scrapy.Item):
+class Repositories(DjangoItem):
     rep_name = scrapy.Field()
     description = scrapy.Field()
     url = scrapy.Field()

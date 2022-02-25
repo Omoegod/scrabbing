@@ -1,4 +1,5 @@
 import collections
+from posixpath import split
 import scrapy
 from scrapy.item import Item, Field
 from app.items import Repositories
@@ -14,9 +15,16 @@ collections = db.collections
 
 class GitscrabSpider(scrapy.Spider):
     name = 'gitscrab'
-    
-    start_urls = ['https://github.com/scrapy',]
-                  #'https://github.com/celery']
+    start_urls = None
+
+    def start_requests(self):
+        if not GitscrabSpider.start_urls:
+            url = [item for item in input("Enter URL: ").split()]
+            GitscrabSpider.start_urls = url
+
+        print("URLs: " + str(GitscrabSpider.start_urls))
+        for url in GitscrabSpider.start_urls:
+            yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
 
