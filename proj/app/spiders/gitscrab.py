@@ -1,7 +1,6 @@
 import collections
 from posixpath import split
 import scrapy
-from scrapy.item import Item, Field
 from app.items import Repositories
 from urllib.parse import urljoin
 
@@ -11,15 +10,13 @@ client = MongoClient()
 db = client.gitscrab
 collections = db.collections
 
-
-
 class GitscrabSpider(scrapy.Spider):
     name = 'gitscrab'
     start_urls = None
 
     def start_requests(self):
         if not GitscrabSpider.start_urls:
-            url = [item for item in input("Enter URL: ").split()]
+            url = [item for item in input("Enter URL(one url or list [url url url...] ): ").split()]
             GitscrabSpider.start_urls = url
 
         print("URLs: " + str(GitscrabSpider.start_urls))
@@ -39,8 +36,6 @@ class GitscrabSpider(scrapy.Spider):
                 #print(url)
                 yield response.follow(url, callback = self.parse_repo)  
                 
-
-
     def parse_repo(self, response):
 
         item = Repositories()

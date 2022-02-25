@@ -7,13 +7,6 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-import sys 
-sys.path.append('\scrabbing\proj\django-app\proj') 
-
-import os 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'proj.settings'
-
-
 BOT_NAME = 'app'
 
 SPIDER_MODULES = ['app.spiders']
