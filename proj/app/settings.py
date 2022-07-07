@@ -15,9 +15,9 @@ NEWSPIDER_MODULE = 'app.spiders'
 
 
 FEED_EXPORT_ENCODING = "utf-8"
-FEED_EXPORT_FIELDS = ['rep_name', 'description', 'url', 'stars', 'forks', 'watching', 'commits', 'info_commit', 'releases', 'info_releases']
-FEEDS_FORMAT = "csv"
-FEEDS_URI = "repos.csv"
+FEED_EXPORT_FIELDS = ['rep_url', 'username', 'rep_name', 'description', 'stars', 'forks', 'watching', 'url', 'commits', 'author_commit', 'name_commit', 'datetime_commit', 'releases', 'version_releases', 'datetime_releases', 'changelog_releases']
+FEEDS_FORMAT = "json"
+FEEDS_URI = "items.json"
 
 
 
