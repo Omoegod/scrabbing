@@ -19,7 +19,11 @@ FEED_EXPORT_FIELDS = ['rep_url', 'username', 'rep_name', 'description', 'stars',
 FEEDS_FORMAT = "json"
 FEEDS_URI = "items.json"
 
+ITEM_PIPELINES = {'app.pipelines.MongoPipeLine' : 500, }
 
+MONGO_URI = "mongodb://localhost:27017"
+MONGO_DATABASE = "githubrepo"
+MONGODB_COLLECTION = "items"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
